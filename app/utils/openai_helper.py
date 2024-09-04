@@ -1,4 +1,3 @@
-# app/utils/openai_helper.py
 from openai import OpenAI
 from typing import List, Dict
 from dotenv import load_dotenv
@@ -12,7 +11,6 @@ client = OpenAI(api_key=OPENAI_API_KEY, organization='org-toeu6fWf7CJhd1mUZgEQob
 client = wrap_openai(client)
 
 def generate_response(customer_inquiry: str, relevant_tickets: List[Dict]) -> str:
-    # Compose the prompt
     prompt = f"""
 Customer Inquiry: {customer_inquiry}
 
@@ -38,7 +36,6 @@ Important: If there is no relevant information in the tickets, please say so and
 
 Your response:"""
 
-    # Call the OpenAI API
     response = client.chat.completions.create(
         model="gpt-4o-mini",
         messages=[
@@ -49,5 +46,4 @@ Your response:"""
         temperature=0.5,
     )
 
-    # Extract and return the generated response
     return response.choices[0].message.content

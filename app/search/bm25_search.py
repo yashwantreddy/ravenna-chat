@@ -1,4 +1,3 @@
-# app/search/bm25_search.py
 from rank_bm25 import BM25Okapi
 from typing import List, Dict, Tuple
 import re
@@ -16,7 +15,6 @@ class BM25Searcher:
         return re.findall(r'\w+', text.lower())
 
     def _get_tags(self, text: str) -> List[str]:
-        # Extract potential tags from the text
         return re.findall(r'\b\w+\b', text.lower())
 
     def search(self, query: str, top_k: int = 3) -> Tuple[List[Dict], List[float]]:
@@ -25,7 +23,6 @@ class BM25Searcher:
         
         doc_scores = self.bm25.get_scores(tokenized_query)
         
-        # Adjust scores based on tag matches
         for i, ticket in enumerate(self.tickets):
             ticket_tags = set(tag.lower() for tag in ticket['tags'])
             matching_tags = set(query_tags) & ticket_tags
