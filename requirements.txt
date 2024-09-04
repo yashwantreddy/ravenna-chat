@@ -1,0 +1,7 @@
+fastapi
+rank-bm25
+langsmith
+openai
+langchain
+openai-responses
+python-dotenv
