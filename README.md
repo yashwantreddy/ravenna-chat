@@ -56,14 +56,14 @@ The application consists of the following main components:
 
 1. Clone the repository:
    ```
-   git clone https://github.com/yourusername/chatbot-api.git
-   cd chatbot-api
+   git clone https://github.com/yashwantreddy/ravenna-chat.git
+   cd ravenna-chat
    ```
 
-2. Create a virtual environment:
+2. Create a virtual environment using `conda`:
    ```
-   python -m venv venv
-   source venv/bin/activate  # On Windows, use `venv\Scripts\activate`
+   conda create -n ravenna-chat python=3.12
+   conda activate ravenna-chat
    ```
 
 3. Install the required packages:
@@ -72,9 +72,11 @@ The application consists of the following main components:
    ```
 
 4. Set up environment variables:
-   Create a `.env` file in the project root and add your OpenAI API key:
+   Create a `.env` file in the project root and add your OpenAI API key (for generating responses), Supabase URL, and Supabase Key (to fetch zendesk tickets):
    ```
    OPENAI_API_KEY=your_api_key_here
+   SUPABASE_URL=your_supabase_url_here
+   SUPABASE_KEY=your_supabase_key_here
    ```
 
 ## Usage
