@@ -4,9 +4,9 @@ This private project implements a chatbot API that uses BM25 search to find rele
 
 ## Deployed Endpoint
 
-[https://ravenna-chat-laslqys9a-yash-jankays-projects.vercel.app/](https://ravenna-chat-laslqys9a-yash-jankays-projects.vercel.app/)
+[https://ravenna-chat.vercel.app/chat](https://ravenna-chat.vercel.app/chat)
 
-To make a request, send a POST request to the `/chat` endpoint with a JSON payload:
+To make a request, send a `POST` request to the `/chat` endpoint with a JSON payload:
 
 ```json
 {
@@ -14,6 +14,13 @@ To make a request, send a POST request to the `/chat` endpoint with a JSON paylo
 }
 ```
 
+You get a response like this:
+
+```json
+{
+  "response": "To reset your password, please follow these steps..."
+}
+```
 
 ## Architecture
 
@@ -26,6 +33,10 @@ The application consists of the following main components:
 3. LangSmith: Used for traceability and debugging.
 4. OpenAI's `GPT-4o-mini`: Used for generating responses.
 5. Vercel: Used for hosting the API.
+
+## Functionality
+
+![functionality](assets/python-app.png)
 
 ## Features
 
@@ -107,27 +118,3 @@ Run the test suite using pytest:
 ```
 pytest
 ```
-
-## Deployment
-
-This application can be deployed to various cloud platforms. Here are general steps for deployment:
-
-1. Ensure all dependencies are in `requirements.txt`
-2. Set up environment variables on your hosting platform
-3. Configure your hosting platform to run the FastAPI application
-
-For specific deployment instructions, refer to your chosen hosting platform's documentation.
-
-## Contributing
-
-Contributions are welcome! Please feel free to submit a Pull Request.
-
-## License
-
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
-
-## Acknowledgements
-
-- [FastAPI](https://fastapi.tiangolo.com/)
-- [OpenAI](https://openai.com/)
-- [rank_bm25](https://github.com/dorianbrown/rank_bm25)
