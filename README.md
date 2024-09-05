@@ -2,6 +2,11 @@
 
 This private project implements a chatbot API that uses BM25 search to find relevant support tickets and OpenAI's GPT-4o-mini to generate human-like responses. It's designed to assist customer support agents by providing AI-generated responses based on existing support ticket data.
 
+## Time Spent
+
+- 3.5 hours: Setting up the project, implementing the BM25 search algorithm and the API, setting up Supabase and deploying the app to Vercel.
+- 40 minutes: Writing the README and documentation.
+
 ## Deployed Endpoint
 
 [https://ravenna-chat.vercel.app/chat](https://ravenna-chat.vercel.app/chat)
@@ -46,6 +51,25 @@ The application consists of the following main components:
 - Configurable relevance threshold for determining when to use AI-generated responses
 - FastAPI for high-performance API endpoints
 - Comprehensive test suite using `pytest`
+
+## Trade-offs
+
+
+- I chose BM25 over other search algorithms (like vector search or hybrid approaches) because it was the most performant and easy to implement, given the time constraint.
+- I chose Supabase over a more traditional database like Postgres because of its ease of use and the fact that it provides a Postgres-compatible database out of the box, allowing me to focus on the chatbot logic rather than setting up and managing a database.
+- I chose `GPT-4o-mini` over other models because of low latency and cost.
+
+## Assumptions
+
+- The support tickets are stored in a table called `zendesk` in Supabase.
+- The `zendesk` table has the following columns: `ticket_id`, `customer_question`, `support_agent_response` and `tags`.
+- The `tags` column is an array/collection of strings associated with the ticket.
+
+## Scaling to Production
+
+- Loading the tickets from Supabase to the app needs to be done on startup of the app, instead of doing it on every request.
+- Use a load balancer to scale the app horizontally.
+- The app could be ideally deployed to a cloud service provider. I chose Vercel because it provides a free tier and is easy to use.
 
 ## Prerequisites
 
