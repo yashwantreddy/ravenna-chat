@@ -22,7 +22,7 @@ Relevant Support Tickets:
 Ticket {i}:
 Q: {ticket['customer_question']}
 A: {ticket['support_agent_response']}
-Tags: {', '.join(ticket['tags'])}
+Tags: {ticket['tags']}
 
 """
     
