@@ -58,6 +58,7 @@ The application consists of the following main components:
 - I chose BM25 over other search algorithms (like vector search or hybrid approaches) because it was the most performant and easy to implement, given the time constraint.
 - I chose Supabase over a more traditional database like Postgres because of its ease of use and the fact that it provides a Postgres-compatible database out of the box, allowing me to focus on the chatbot logic rather than setting up and managing a database.
 - I chose `GPT-4o-mini` over other models because of low latency and cost.
+- I chose a simple tag-based scoring system over a more complex system because it was the most performant and easy to implement, given the time constraint.
 
 ## Assumptions
 
